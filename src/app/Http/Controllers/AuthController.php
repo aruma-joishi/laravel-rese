@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Requests\LoginRequest;
 use App\Http\Request\RegisterRequest;
-use App\Http\Request\LoginRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
