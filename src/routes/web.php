@@ -12,6 +12,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/favorite/{num}', [FavoriteController::class, 'favorite']);
   Route::get('/unfavorite/{num}', [FavoriteController::class, 'unfavorite']);
 
+  Route::post('/reserve', [ShopController::class, 'reserve']);
+
   Route::get('/mypage', [ShopController::class, 'mypage']);
 
 

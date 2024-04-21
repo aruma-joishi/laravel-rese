@@ -12,7 +12,7 @@ class Favorite extends Model
 
     protected $fillable = ['user_id', 'shop_id'];
 
-    public function favorite()
+    public function shop()
     {
         return $this->belongsTo(Shop::class);
     }
@@ -22,20 +22,4 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-
-    public function favoriteCheck()
-    {
-        $id = Auth::id();
-
-        $favorites = array();
-        foreach ($this->favorites as $favorite) {
-            array_push($favorites, $favorite->user_id);
-        }
-
-        if (in_array($id, $favorites)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

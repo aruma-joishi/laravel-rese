@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Favorite;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
@@ -35,7 +36,8 @@ class ShopController extends Controller
 
     public function reservation(Request $request)
     {
-        $adjustShop = Shop::where('id', $request->num)->first();
-        return view('detail', compact("adjustShop"));
-    }
+        $reserve = $request->only(['date', 'time', 'number', 'id']);
+        Reservation::create($reserve);
+            return view('thanks');
+        }
 }
