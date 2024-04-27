@@ -2,13 +2,23 @@
 
 @section('main')
 <p class="welcome">{{ Auth::user()->name }}でログイン中</p>
-@foreach ($favorites as $favorite)
+@foreach ($adjustShops as $adjustShop)
 <ul>
-  <li>{{ $shops['$favorite['shop_id']']->image }}</li>
-  <li>{{ $shops->name }}</li>
-  <li>#{{ $shops->area }}</li>
-  <li>#{{ $shop->genre }}</li>
-  <a href="/detail/{{$shop->id}}">{{$shop->id}}詳しく見る</a>
+  <li>{{$adjustShop -> image}}</li>
+  <li>{{$adjustShop -> name}}</li>
+  <li>#{{$adjustShop -> area}}</li>
+  <li>#{{$adjustShop -> genre}}</li>
+  <a href="/detail/{{$adjustShop -> id}}">{{$adjustShop -> id}}詳しく見る</a>
+
+</ul>
+@endforeach
+
+@foreach ($reservations as $reservation)
+<ul>
+  <li>{{$adjustShop['$reservation -> shop_id']['name']}}</li>
+  <li>{{$reservation -> date}}</li>
+  <li>{{$reservation -> time}}</li>
+  <li>{{$reservation -> number}}</li>
 
 </ul>
 @endforeach

@@ -15,6 +15,11 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->integer('shop_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->string('date');
+            $table->string('time');
+            $table->string('number');
             $table->timestamps();
         });
     }
