@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ReserveRequest;
 use App\Models\Shop;
 use App\Models\Favorite;
 use App\Models\Reservation;
@@ -26,17 +27,20 @@ class ShopController extends Controller
     public function mypage(Request $request)
     {
         $id = Auth::id();
-        $favorites = Favorite::where('user_id',$id)->get();
-        // dd($favorites);
-        $shops = Shop::where('shop_id',$favorites->user_id)->get();
-        return view('mypage', compact("favorites","shops"));
+        $favorites = Favorite::where('user_id',$id)->get(['shop_id']);
+        $adjustShops = array();
+        foreach ($favorites as &$favorite) {
+            $adjustShop = Shop::where('id', $favorite->shop_id)->first();
+            array_push($adjustShops, $adjustShop);
+        }
+
+        $reservations = Reservation::where('user_id', $id)->get();
+        return view('mypage',compact("favorites","adjustShops","reservations"));
     }
 
-    //まだ
-
-    public function reservation(Request $request)
+    public function reserve(ReserveRequest $request)
     {
-        $reserve = $request->only(['date', 'time', 'number', 'id']);
+        $reserve = $request->only(['user_id','shop_id','date', 'time', 'number']);
         Reservation::create($reserve);
             return view('thanks');
         }
