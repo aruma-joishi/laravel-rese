@@ -15,7 +15,21 @@ class ShopController extends Controller
     {
         $shops = Shop::all();
         $favorites = Favorite::all();
-        return view('index', compact("shops","favorites"));
+        $areas = Shop::groupBy('area')->get(['area']);
+        $genres = Shop::groupBy('genre')->get(['genre']);
+
+        return view('index', compact("shops","favorites","areas","genres"));
+    }
+
+    public function search(Request $request)
+    {
+        $shops = Shop::all()->KeywordSearch($request->keyword)->GenreSearch($request->genre)->get();
+        // ->AreaSearch($request->area)
+        $favorites = Favorite::all();
+        $areas = Shop::groupBy('area')->get(['area']);
+        $genres = Shop::groupBy('genre')->get(['genre']);
+
+        return view('index', compact("shops", "favorites", "areas", "genres"));
     }
 
     public function detail(Request $request)
@@ -27,15 +41,18 @@ class ShopController extends Controller
     public function mypage(Request $request)
     {
         $id = Auth::id();
-        $favorites = Favorite::where('user_id',$id)->get(['shop_id']);
+        $favorites = Favorite::where('user_id',$id)->orderBy('shop_id', 'asc')->get(['shop_id']);
         $adjustShops = array();
         foreach ($favorites as &$favorite) {
             $adjustShop = Shop::where('id', $favorite->shop_id)->first();
             array_push($adjustShops, $adjustShop);
         }
 
-        $reservations = Reservation::where('user_id', $id)->get();
-        return view('mypage',compact("favorites","adjustShops","reservations"));
+
+        $reservations = Reservation::where('user_id', $id)->orderBy('date', 'asc')->orderBy('time', 'asc')->get();
+        $shops = Shop::all();
+
+        return view('mypage',compact("adjustShops","reservations","shops"));
     }
 
     public function reserve(ReserveRequest $request)
@@ -44,4 +61,11 @@ class ShopController extends Controller
         Reservation::create($reserve);
             return view('thanks');
         }
+
+
+    public function destroy(Request $request)
+    {
+        Reservation::find($request->id)->delete();
+        return redirect('/mypage')->with('message', 'Todoを削除しました');
+    }
 }

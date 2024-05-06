@@ -14,17 +14,23 @@
 <body class="container">
     <header class="header">
         <h1 class="header-ttl">Rese</h1>
-        <!-- @if( Auth::check() ) -->
+        @if( Auth::check() )
+        <nav class="header-nav">
+            <ul class="header-nav-list">
+                <li class="header-nav-item"><a href="/">ホーム</a></li>
+                <li class="header-nav-item"><a href="/logout">ログアウト</a></li>
+                <li class="header-nav-item"><a href="/mypage">マイページ</a></li>
+            </ul>
+        </nav>
+        @else
         <nav class="header-nav">
             <ul class="header-nav-list">
                 <li class="header-nav-item"><a href="/">ホーム</a></li>
                 <li class="header-nav-item"><a href="/register">新規登録</a></li>
                 <li class="header-nav-item"><a href="/login">ログイン</a></li>
-                <li class="header-nav-item"><a href="/logout">ログアウト</a></li>
-                <li class="header-nav-item"><a href="/mypage">マイページ</a></li>
             </ul>
         </nav>
-        <!-- @endif -->
+        @endif
     </header>
 
     <main class="main">
