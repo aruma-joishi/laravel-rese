@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('main')
-<a href="/" class= >戻る</a>
+<button type="button" onClick="history.back()">戻る</button>
 @endsection`

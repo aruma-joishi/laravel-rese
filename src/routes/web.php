@@ -7,12 +7,14 @@ use App\Http\Controllers\FavoriteController;
 
 Route::middleware('auth')->group(function () {
   Route::get('/', [ShopController::class, 'index']);
+  Route::get('/search', [ShopController::class, 'search']);
   Route::get('/detail/{num}', [ShopController::class, 'detail']);
 
   Route::get('/favorite/{num}', [FavoriteController::class, 'favorite']);
   Route::get('/unfavorite/{num}', [FavoriteController::class, 'unfavorite']);
 
   Route::post('/reserve', [ShopController::class, 'reserve']);
+  Route::delete('/delete', [ShopController::class, 'destroy']);
 
   Route::get('/mypage', [ShopController::class, 'mypage']);
 
