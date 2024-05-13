@@ -1,0 +1,17 @@
+*{
+  color:rgba(135, 117, 101, 1);
+}
+
+.header{
+  border-bottom: 1px solid rgba(242, 242, 241, 1);
+  background-color:white;
+}
+
+.header-inner{
+  display: flex;
+}
+
+h2{
+  margin: auto;
+  padding-top:20px;
+}

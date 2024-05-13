@@ -53,11 +53,11 @@ class Shop extends Model
         }
     }
 
-    // public function scopeAreaSearch($query, $area)
-    // {
-    //     if (!empty($area)) {
-    //         $query->where('area', $area);
-    //     }
-    // }
+    public function scopeAreaSearch($query, $area)
+    {
+        if (!empty($area)) {
+            $query->where('area', $area);
+        }
+    }
 
 }

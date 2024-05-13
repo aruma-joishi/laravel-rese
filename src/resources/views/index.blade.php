@@ -11,17 +11,17 @@
         <button class="search-form__button-submit" type="submit">検索</button>
     </form>
 
-    <!-- <select class="search-form__item-select" form="search" name="area">
+    <select class="search-form__item-select" form="search" name="area">
         <option value="">All area</option>
         @foreach ($areas as $area)
-        <option value="{{ $area->area }}">{{ $area->area }}</option>
+        <option value="{{ $area->area }}" @if( request('area') == $area -> area ) selected @endif>{{ $area->area }}</option>
         @endforeach
-    </select> -->
+    </select>
 
     <select class="search-form__item-select" form="search" name="genre">
         <option value="">All genre</option>
         @foreach ($genres as $genre)
-        <option value="{{ $genre->genre }}">{{ $genre->genre }}</option>
+        <option value="{{ $genre->genre }}" @if( request('genre') == $genre -> genre ) selected @endif>{{ $genre->genre }}</option>
         @endforeach
     </select>
 

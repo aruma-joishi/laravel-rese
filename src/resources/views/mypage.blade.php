@@ -2,6 +2,8 @@
 
 @section('main')
 <p class="welcome">{{ Auth::user()->name }}でログイン中</p>
+
+<h1>お気に入り</h1>
 @foreach ($adjustShops as $adjustShop)
 <ul>
   <li>{{$adjustShop -> image}}</li>
@@ -34,7 +36,7 @@
 @endforeach
 <li>{{$reservation -> date}}</li>
 <li>{{$reservation -> time}}</li>
-<li>{{$reservation -> number}}</li>
+<li>{{$reservation -> number}}人</li>
 
 </ul>
 @endforeach
