@@ -23,13 +23,13 @@ class ShopController extends Controller
 
     public function search(Request $request)
     {
-        $shops = Shop::all()->KeywordSearch($request->keyword)->GenreSearch($request->genre)->get();
-        // ->AreaSearch($request->area)
+        $shops = Shop::with(['user'])->keywordSearch($request->keyword)->genreSearch($request->genre)->areaSearch($request->area)->get();
         $favorites = Favorite::all();
         $areas = Shop::groupBy('area')->get(['area']);
         $genres = Shop::groupBy('genre')->get(['genre']);
 
         return view('index', compact("shops", "favorites", "areas", "genres"));
+
     }
 
     public function detail(Request $request)
