@@ -1,5 +1,10 @@
 *{
-  color:rgba(135, 117, 101, 1);
+  color:rgba(238, 238, 238, 1);
+  font:rgba(48, 93, 255, 1);
+}
+
+.menu{
+
 }
 
 .header{
@@ -14,4 +19,79 @@
 h2{
   margin: auto;
   padding-top:20px;
+}
+
+.modal-wrapper {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 60px 10px;
+  text-align: center
+}
+
+.modal-wrapper:not(:target) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-wrapper:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper .modal-window {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  height: 90%;
+  padding: 30px 30px 15px;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .6);
+  vertical-align: middle;
+}
+
+.modal-wrapper .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  color: #95979c !important;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
+  border-radius: 50%;
+}
+
+.modal-table__inner {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.modal-table__header {
+  padding: 15px;
+  width: 40%;
+}
+
+.modal-table__text {
+  padding: 15px;
+  display: flex;
+}
+
+.modal-table__detail {
+  height: 150px;
+}
+
+.modal-table__text {
+  text-align: left;
+}
+
+.modal-wrapper .modal-close:hover {
+  color: #2b2e38 !important
 }
