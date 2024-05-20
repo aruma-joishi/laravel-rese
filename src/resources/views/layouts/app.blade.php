@@ -2,43 +2,45 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Atte</title>
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('css')
 </head>
 
 <body class="container">
     <header class="header">
-        <h1 class="header-ttl">Rese</h1>
-        @if( Auth::check() )
-        <nav class="header-nav">
-            <ul class="header-nav-list">
-                <li class="header-nav-item"><a href="/">ホーム</a></li>
-                <li class="header-nav-item"><a href="/logout">ログアウト</a></li>
-                <li class="header-nav-item"><a href="/mypage">マイページ</a></li>
-            </ul>
-        </nav>
-        @else
-        <nav class="header-nav">
-            <ul class="header-nav-list">
-                <li class="header-nav-item"><a href="/">ホーム</a></li>
-                <li class="header-nav-item"><a href="/register">新規登録</a></li>
-                <li class="header-nav-item"><a href="/login">ログイン</a></li>
-            </ul>
-        </nav>
-        @endif
+        <a href="#modal">
+            <img src="/image/menu.png">
+        </a>
+        <h1 class="menu-open">Rese</h1>
+        <div class="modal-wrapper" id="modal">
+            <a href="#!" class="modal-overlay"></a>
+            <div class="modal-window">
+                <div class="modal-content">
+                    @if( Auth::check() )
+                    <h1 class="header-nav-item"><a href="/">Home</a></h1>
+                    <h1 class="header-nav-item"><a href="/logout">Logout</a></h1>
+                    <h1 class="header-nav-item"><a href="/mypage">Mypage</a></h1>
+                    @else
+                    <h1 class="header-nav-item"><a href="/">Home</a></h1>
+                    <h1 class="header-nav-item"><a href="/register">Registration</a></h1>
+                    <h1 class="header-nav-item"><a href="/login">Login</a></h1>
+                    @endif
+                </div>
+                <a href="#!" class="modal-close">×</a>
+            </div>
+        </div>
+
+
+
     </header>
 
     <main class="main">
         @yield('main')
     </main>
-    <footer class="footer">
-        <p class="footer-ttl">estra, inc.</p>
-    </footer>
 </body>
 
 </html>
