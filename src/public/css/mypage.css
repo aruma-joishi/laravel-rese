@@ -1,65 +1,117 @@
-.main {
+.mypage {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 500px;
-  margin: 0 auto;
 }
 
+.reserve{
+  width: 50%;
+  margin:0 auto;
+
+}
+
+.reserve__content {
+  border-radius: 10px;
+}
+
+.reserve__header{
+  display:flex;
+  justify-content: space-between;
+  background-color: rgba(48, 93, 255, 1);
+  margin-top: 30px;
+}
+
+.reserve__header * {
+  color: #fff;
+  border: none;
+  background-color: rgba(48, 93, 255, 1);
+} 
+
+table {
+  width: 80%;
+  text-align: left;
+  writing-mode: vertical-lr;
+  background-color: rgba(48, 93, 255, 1);
+  border-radius: 10px;
+  padding:0 100px;
+
+}
+
+th {
+  width: 100px;
+}
+
+th,
+td {
+  writing-mode: horizontal-tb;
+  background-color: rgba(48, 93, 255, 1);
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.favorite__content {
+  width:50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 .card__item {
-  width: 100%;
+  width: 44%;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
+  border: #008888;
+  border-radius: 10px;
+  margin: 0 0 30px 0;
 }
 
+.card__item,
+.card__item * {
+  background-color: #fff;
 
-.card__item:last-child {
-  margin-bottom: 0;
 }
 
+.card__img {
+  margin: auto;
+  border-radius: 10px 10px 0 0;
+}
 
 .card__img img {
   width: 100%;
+  margin: auto;
+  border-radius: 10px 10px 0 0;
 }
-
-
-.card__content {
-  padding: 15px 25px;
-}
-
 
 .card__ttl {
-  font-size: 18px;
-  margin-bottom: 30px;
-  font-weight: 400;
+  margin: 10px 0 10px 20px;
 }
 
+.card__tag {
+  display: flex;
+  margin: 0 auto 10px 0;
+}
 
-.card__cat {
-  padding: 5px 10px;
-  background: #008888;
-  margin-bottom: 15px;
-  display: inline-block;
+.card__footer {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__footer a {
+  width: 100px;
+  padding: 10px 10px 5px 10px;
+  margin-bottom: 20px;
+}
+
+.card__footer__detail {
+  text-decoration: none;
+  vertical-align: middle;
+  background-color: rgba(48, 93, 255, 1);
+  border-radius: 5px;
   color: #fff;
-  font-size: 14px;
 }
 
-
-.tag {
-  font-size: 14px;
+.favorite-icon {
   text-align: right;
 }
 
-
-.card__tag {
-  display: inline-block;
-  color: #008888;
-}
-
-
-.card__date {
-  display: inline-block;
-  margin-left: 20px;
-  color: #888888;
+.favorite-icon img {
+  width: 40%;
 }

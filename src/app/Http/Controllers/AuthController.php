@@ -23,7 +23,7 @@ class AuthController extends Controller
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
             ]);
-            return redirect('login')->with('result', '会員登録が完了しました');
+            return view('thanks');
         } catch (\Throwable $th) {
             return redirect('register')->with('result', 'エラーが発生しました');
         }
