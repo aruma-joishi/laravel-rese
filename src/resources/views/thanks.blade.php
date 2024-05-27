@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/thanks.css') }}">
+@endsection
+
 @section('main')
-<button type="button" onClick="history.back()">戻る</button>
-@endsection`
+
+<div class="thanks__content">
+  <h2>会員登録ありがとうございます</h2>
+  <a href="/login">Login</a>ログインする</button>
+</div>
+
+
+@endsection

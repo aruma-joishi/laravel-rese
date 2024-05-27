@@ -59,13 +59,13 @@ class ShopController extends Controller
     {
         $reserve = $request->only(['user_id','shop_id','date', 'time', 'number']);
         Reservation::create($reserve);
-            return view('thanks');
+            return view('done');
         }
 
 
     public function destroy(Request $request)
     {
         Reservation::find($request->id)->delete();
-        return redirect('/mypage')->with('message', 'Todoを削除しました');
+        return redirect('/mypage')->with('message', '予約を削除しました');
     }
 }

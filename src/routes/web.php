@@ -18,7 +18,6 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/mypage', [ShopController::class, 'mypage']);
 
-
 });
 
 
