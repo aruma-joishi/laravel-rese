@@ -4,6 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FavoriteController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
+Route::get('/email/verify', function () {
+  return view('verify');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+  $request->fulfill();
+
+  return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::middleware('auth')->group(function () {
   Route::get('/', [ShopController::class, 'index']);
@@ -14,6 +25,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/unfavorite/{num}', [FavoriteController::class, 'unfavorite']);
 
   Route::post('/reserve', [ShopController::class, 'reserve']);
+
+  Route::patch('/update', [ShopController::class, 'update']);
   Route::delete('/delete', [ShopController::class, 'destroy']);
 
   Route::get('/mypage', [ShopController::class, 'mypage']);

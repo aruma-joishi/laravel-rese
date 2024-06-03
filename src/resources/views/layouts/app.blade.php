@@ -23,13 +23,13 @@
             <div class="modal-window">
                 <div class="modal-content">
                     @if( Auth::check() )
-                    <a class="modal__text"href="/">Home</a>
-                    <a class="modal__text"href="/logout">Logout</a>
-                    <a class="modal__text"href="/mypage">Mypage</a>
+                    <a class="modal__text" href="/">Home</a>
+                    <a class="modal__text" href="/logout">Logout</a>
+                    <a class="modal__text" href="/mypage">Mypage</a>
                     @else
-                    <a class="modal__text"href="/">Home</a>
-                    <a class="modal__text"href="/register">Registration</a>
-                    <a class="modal__text"href="/login">Login</a>
+                    <a class="modal__text" href="/">Home</a>
+                    <a class="modal__text" href="/register">Registration</a>
+                    <a class="modal__text" href="/login">Login</a>
                     @endif
                 </div>
                 <a href="#!" class="modal-close">×</a>

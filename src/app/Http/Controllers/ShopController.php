@@ -63,6 +63,14 @@ class ShopController extends Controller
         }
 
 
+    public function update(ReserveRequest $request)
+    {
+        $reserve = $request->only(['id', 'user_id', 'shop_id', 'date', 'time', 'number']);
+        Reservation::find($request->id)->update($reserve);
+
+        return redirect()->back();
+    }
+
     public function destroy(Request $request)
     {
         Reservation::find($request->id)->delete();

@@ -1,29 +1,48 @@
 .mypage {
   display: flex;
+  width:100%;
 }
 
 .reserve{
-  width: 50%;
+  width:50%;
   margin:0 auto;
 
 }
 
-.reserve__content {
+.reserve__item {
+  width:600px;
   border-radius: 10px;
+  background-color: rgba(48, 93, 255, 1);
+  padding:30px 0;
+  margin:0 50px 50px 0;
 }
 
 .reserve__header{
   display:flex;
   justify-content: space-between;
   background-color: rgba(48, 93, 255, 1);
-  margin-top: 30px;
+  margin:auto;
 }
 
 .reserve__header * {
   color: #fff;
   border: none;
   background-color: rgba(48, 93, 255, 1);
-} 
+}
+
+.reserve__title{
+  display: flex;
+  
+}
+
+.reserve__header__time *{
+  width:30px;
+  margin: auto;
+}
+
+.reserve__button {
+display: flex;
+}
 
 table {
   width: 80%;
@@ -48,7 +67,6 @@ td {
 }
 
 .favorite__content {
-  width:50%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
