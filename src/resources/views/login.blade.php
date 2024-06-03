@@ -16,7 +16,7 @@
         <div class="email__img">
           <img src=/image/email.png alt="email">
         </div>
-        <input type="email" placeholder="Email" name="email" value="{{ old('email') }}">
+        <input class="input" type="email" placeholder="Email" name="email" value="{{ old('email') }}">
         @error('email')
         <p>{{ $message }}</p>
         @enderror
@@ -26,16 +26,16 @@
         <div class="password__img">
           <img src=/image/password.png alt="password">
         </div>
-        <input type="password" placeholder="Password" name="password">
+        <input class="input" type="password" placeholder="Password" name="password">
         @error('password')
         <p>{{ $message }}</p>
         @enderror
       </div>
 
-    <div class="btn-container">
-    @if (session('result'))
-    <div class="flash_message">
-      {{ session('result') }}
+      <div class="btn-container">
+        @if (session('result'))
+        <div class="flash_message">
+          {{ session('result') }}
         </div>
         @endif
         <input type="submit" value="ログイン">
