@@ -22,7 +22,7 @@
     <button class="search-form__button-submit" form="search" type="submit">検索</button>
     <form class="search-form" action="/search" method="get" id="search">
         @csrf
-        <input class="search-form__item-input" type="text" name="keyword" value="{{request('keyword')}}">
+        <input class="search-form__item-input" type="text" name="keyword" placeholder="Search..." value="{{request('keyword')}}">
     </form>
 </div>
 <div class="shop">

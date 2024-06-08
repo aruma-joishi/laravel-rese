@@ -7,6 +7,15 @@ display: flex;
 margin-bottom: 20px;
   }
 
+.back-button{
+  width:30px;
+  background-color: #fff;
+  border: none;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
     .shop {
       width: 50%;
     }
@@ -68,6 +77,13 @@ th ,td{
   background-color: rgba(77, 127, 255, 1);
   color:#fff;
   padding:5px;
+}
+
+.error *,.error{
+  display:flex;
+  flex-flow: column;
+  background-color: rgba(48, 93, 255, 1);
+color:red
 }
 
 .submit{

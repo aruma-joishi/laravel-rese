@@ -35,7 +35,7 @@ class ReserveRequest extends FormRequest
     {
         return [
             'date.required' => '日にちを入力してください',
-            'date.after:yesterday' => '予約できない日時です',
+            'date.after' => '予約できない日時です',
             'time.required' => '時間を入力してください',
             'number.required' => '人数を入力してください',
 
