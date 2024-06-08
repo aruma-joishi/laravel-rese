@@ -16,20 +16,22 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
   return redirect('/');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('verified')->group(function () {
+
   Route::get('/', [ShopController::class, 'index']);
   Route::get('/search', [ShopController::class, 'search']);
   Route::get('/detail/{num}', [ShopController::class, 'detail']);
 
-  Route::get('/favorite/{num}', [FavoriteController::class, 'favorite']);
-  Route::get('/unfavorite/{num}', [FavoriteController::class, 'unfavorite']);
-
   Route::post('/reserve', [ShopController::class, 'reserve']);
-
   Route::patch('/update', [ShopController::class, 'update']);
   Route::delete('/delete', [ShopController::class, 'destroy']);
 
   Route::get('/mypage', [ShopController::class, 'mypage']);
+
+  Route::get('/favorite/{num}', [FavoriteController::class, 'favorite']);
+  Route::get('/unfavorite/{num}', [FavoriteController::class, 'unfavorite']);
+
+
 
 });
 

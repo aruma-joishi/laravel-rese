@@ -1,24 +1,26 @@
 .thanks__content {
-  width:100%;
-}
-
-.thanks__heading h2{
-  margin: 200px 0 50px 0 ;
-  font-size: 25px;
-  text-align: center;
-}
-
-.thanks__link {
-  display: block;
-  font-size: 25px;
-  text-align: center;
+  width: 40%;
+  background-color: #fff;
   margin: 0 auto;
-  width:10%;
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: rgba(135, 117, 101, 1);
-  color: white;
+  text-align: center;
+  padding:50px 0;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.thanks__content h2{
+  font-size: 25px;
+  padding:50px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.thanks__content a {
   text-decoration: none;
+  border: none;
+  background-color: rgba(48, 93, 255, 1);
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
 }
